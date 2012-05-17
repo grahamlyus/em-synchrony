@@ -12,7 +12,7 @@ require 'active_record/connection_adapters/mysql2_adapter'
 module ActiveRecord
   class Base
     def self.emmysql2_connection(config)
-      client = EM::Synchrony::ActiveRecord::ConnectionPool.new(size: config[:pool]) do
+      client = EM::Synchrony::ActiveRecord::ConnectionPool.new(size: config[:pool] || 5) do
         conn = ActiveRecord::ConnectionAdapters::EMMysql2Adapter::Client.new(config.symbolize_keys)
         # From Mysql2Adapter#configure_connection
         conn.query_options.merge!(:as => :array)
