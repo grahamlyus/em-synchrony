@@ -18,7 +18,7 @@ describe "Fiberized ActiveRecord driver for mysql2" do
 
   def establish_connection
       ActiveRecord::Base.establish_connection(
-        :adapter => 'em_mysql2',
+        :adapter => 'emmysql2',
         :database => 'widgets',
         :username => 'root',
         :pool => 10
